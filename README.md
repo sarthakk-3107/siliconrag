@@ -99,24 +99,81 @@ Tested with public documentation from:
 
 Target corpus: 15-25 documents, ~500-2000 pages total.
 
-## Evaluation
+## Evaluation Results
 
-Run `python src/evaluate.py` to produce a comparison table like:
+A/B test comparing **agentic RAG** (LangGraph + tool-calling) vs **naive RAG** 
+(single-shot retrieve-then-generate) on 45 queries across 4 categories 
+(spec lookup, comparison, calculation, conceptual).
 
-```
-======================================================================
-  Agentic  vs  Naive   (n=100)
-======================================================================
-Metric              A        B     Diff              95% CI        p
-----------------------------------------------------------------------
-correctness      0.XXX    0.XXX   +0.XXX   [+0.XXX, +0.XXX]   0.XXXX*
-faithfulness     0.XXX    0.XXX   +0.XXX   [+0.XXX, +0.XXX]   0.XXXX*
-completeness     0.XXX    0.XXX   +0.XXX   [+0.XXX, +0.XXX]   0.XXXX
-overall          0.XXX    0.XXX   +0.XXX   [+0.XXX, +0.XXX]   0.XXXX*
-  * = 95% CI excludes 0 (statistically significant)
-```
+**Methodology:**
+- Judge model: `gpt-4o-mini`, scoring 0–1 on correctness, faithfulness, completeness
+- Paired bootstrap (10000 resamples) for 95% CIs on mean score differences
+- Paired permutation test (10000 permutations) for p-values
+- Same 45 queries evaluated on both systems (paired design)
 
-Per-category breakdown lives in `eval/results/`.
+**Results:**
+
+| Metric        | Agentic | Naive | Diff   | 95% CI             | p-value |
+|---------------|---------|-------|--------|--------------------|---------| 
+| Correctness   | 0.704   | 0.738 | -0.033 | [-0.167, +0.098]   | 0.60    |
+| Faithfulness  | 0.720   | 0.744 | -0.024 | [-0.160, +0.109]   | 0.71    |
+| Completeness  | 0.662   | 0.684 | -0.022 | [-0.142, +0.098]   | 0.74    |
+| **Overall**   | 0.696   | 0.722 | -0.027 | [-0.155, +0.099]   | 0.67    |
+
+**Interpretation:** No statistically significant difference detected between 
+agentic and naive RAG on this corpus. Both systems achieve ~70% overall quality. 
+All 95% CIs include zero; none of the differences are significant at α=0.05.
+
+This is a **null result**, which is informative: on a small, topically narrow 
+corpus (5 PDFs, DAC8811-dominant), the agent's specialized tool routing does 
+not outperform naive semantic retrieval. Both architectures converge to 
+similar quality because the retrieval problem is already easy for dense 
+embeddings in this regime.
+
+## Failure Analysis & Discussion
+
+**Why the agentic system didn't outperform naive RAG on this corpus:**
+
+1. **Corpus narrowness.** 55% of chunks come from a single datasheet (DAC8811). 
+   When one document dominates, dense embedding retrieval already reaches high 
+   precision on most queries, leaving little room for agentic routing to add 
+   value. Specialized tools (`spec_lookup`, `compare_chips`) add the most 
+   value on heterogeneous corpora where routing to the right document matters.
+
+2. **Query complexity distribution.** 58% of queries are simple spec lookups 
+   ("What is the resolution of DAC8811?"). These are precisely the queries 
+   where a single retrieval pass succeeds; agentic overhead (routing LLM call 
+   + synthesis LLM call) adds latency and variance without adding precision.
+
+3. **Self-judgment bias.** Using `gpt-4o-mini` as both generator and judge 
+   likely compresses measured gaps between systems. Standard practice uses a 
+   stronger judge (e.g., `gpt-4o` or Claude Opus). A stronger judge would 
+   amplify observed effects in either direction.
+
+4. **Sample size.** n=45 is small for detecting effect sizes < 5%. With 
+   n=150–200, the CIs would shrink by ~2x and smaller true effects might 
+   reach significance.
+
+**What I'd do differently with more time:**
+
+- Expand corpus to 15–20 heterogeneous documents across ISAs, GPUs, analog ICs, 
+  and signal integrity papers, so routing decisions become meaningful
+- Expand eval to 150+ queries with deliberate coverage of multi-hop and 
+  comparison queries (where agentic should shine)
+- Use a stronger judge model to reduce self-preference bias
+- Add a third system arm: hybrid RAG without the agent (dense + BM25 + rerank, 
+  no tool routing). This would isolate the contribution of agentic routing 
+  from retrieval improvements.
+
+**What worked well:**
+
+- Both systems achieve ~70% on correctness and faithfulness, indicating the 
+  retrieval pipeline (hybrid dense + BM25 + cross-encoder reranker) is 
+  surfacing relevant content
+- The evaluation methodology itself is rigorous: paired design, bootstrap CIs, 
+  permutation tests
+- Null results are themselves valuable — they prevent overclaiming and 
+  highlight where architectural complexity isn't yet justified by the problem.
 
 ## Example queries
 

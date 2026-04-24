@@ -7,12 +7,12 @@ venv/
 .pytest_cache/
 .DS_Store
 
-# Data artifacts - too large, users should regenerate
+# Data artifacts - regenerable, too large for git
 data/raw/*.pdf
 data/processed/*.json
 data/chroma_db/
 
-# Eval outputs (keep queries.json, ignore results)
+# Eval outputs (keep queries.json, ignore per-run results)
 eval/results/*.json
 
 # IDE

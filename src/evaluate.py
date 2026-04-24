@@ -71,7 +71,7 @@ def judge_answer(
     answer: str,
     ground_truth: str,
     client: OpenAI,
-    judge_model: str = "gpt-4o",
+    judge_model: str = "gpt-4o-mini",
 ) -> dict:
     """Score an answer using LLM-as-Judge."""
     user_prompt = (

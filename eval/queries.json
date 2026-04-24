@@ -1,5 +1,180 @@
 [
   {
+    "query_id": "dac_spec_001",
+    "category": "spec_lookup",
+    "query": "What is the resolution of the DAC8811?",
+    "ground_truth": "The DAC8811 has 16-bit resolution.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_002",
+    "category": "spec_lookup",
+    "query": "What is the settling time of the DAC8811 to 0.0015% of full-scale?",
+    "ground_truth": "The DAC8811 has a settling time of 0.5 microseconds to ±0.0015% of full-scale for a 0000h to FFFFh to 0000h code transition.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_003",
+    "category": "spec_lookup",
+    "query": "What is the supply voltage range of the DAC8811?",
+    "ground_truth": "The DAC8811 operates from a 2.7 V to 5.5 V single supply.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_004",
+    "category": "spec_lookup",
+    "query": "What is the maximum clock frequency of the DAC8811 serial interface?",
+    "ground_truth": "The DAC8811 serial interface supports a maximum clock frequency of 50 MHz.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_005",
+    "category": "spec_lookup",
+    "query": "What is the DNL specification of the DAC8811?",
+    "ground_truth": "The DAC8811 has a differential nonlinearity (DNL) of ±0.5 LSB typical, ±1 LSB maximum.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_006",
+    "category": "spec_lookup",
+    "query": "What is the INL for the DAC8811C grade?",
+    "ground_truth": "The DAC8811C grade has a relative accuracy (INL) of ±1 LSB.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_007",
+    "category": "spec_lookup",
+    "query": "What is the VREF input range for the DAC8811?",
+    "ground_truth": "The DAC8811 VREF input range is -15 V to +15 V, supporting bipolar operation.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_008",
+    "category": "spec_lookup",
+    "query": "What is the reference multiplying bandwidth of the DAC8811?",
+    "ground_truth": "The DAC8811 has a reference multiplying bandwidth of 10 MHz (-3 dB) with VREF = 5 Vpp and data = FFFFh.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_009",
+    "category": "spec_lookup",
+    "query": "What is the output noise voltage of the DAC8811?",
+    "ground_truth": "The DAC8811 has an output spot noise voltage of 12 nV/√Hz at f = 1 kHz, BW = 1 Hz.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_010",
+    "category": "spec_lookup",
+    "query": "What is the total harmonic distortion of the DAC8811?",
+    "ground_truth": "The DAC8811 has a total harmonic distortion of -105 dB at VREF = 5 Vpp, data = FFFFh, f = 1 kHz.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_011",
+    "category": "spec_lookup",
+    "query": "What is the input resistance at the VREF pin of the DAC8811?",
+    "ground_truth": "The DAC8811 has a typical input resistance of 5 kΩ at the VREF pin (±25% tolerance, code independent).",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_012",
+    "category": "spec_lookup",
+    "query": "What is the IDD power consumption of the DAC8811?",
+    "ground_truth": "The DAC8811 has a typical IDD of 2 µA (with logic inputs at 0V, typical operating current is 1-3 µA depending on VDD).",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_013",
+    "category": "spec_lookup",
+    "query": "What is the operating temperature range of the DAC8811?",
+    "ground_truth": "The DAC8811 operates over an ambient temperature range of -40°C to +125°C (specifications typically given over -40°C to +85°C).",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_014",
+    "category": "spec_lookup",
+    "query": "What is the data setup time requirement for the DAC8811?",
+    "ground_truth": "The DAC8811 requires a minimum data setup time (t_DS) of 5 ns.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_015",
+    "category": "spec_lookup",
+    "query": "What is the data hold time for the DAC8811?",
+    "ground_truth": "The DAC8811 requires a minimum data hold time (t_DH) of 10 ns.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_016",
+    "category": "spec_lookup",
+    "query": "What is the minimum clock pulse width high for the DAC8811?",
+    "ground_truth": "The DAC8811 requires a minimum clock pulse width high (t_CH) of 10 ns.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_017",
+    "category": "spec_lookup",
+    "query": "What is the HBM ESD rating of the DAC8811?",
+    "ground_truth": "The DAC8811 has a Human Body Model (HBM) ESD rating of ±4000 V per ANSI/ESDA/JEDEC JS-001.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_018",
+    "category": "spec_lookup",
+    "query": "What is the absolute maximum VDD to GND voltage for the DAC8811?",
+    "ground_truth": "The absolute maximum VDD to GND voltage for the DAC8811 is 7 V (minimum -0.3 V).",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_019",
+    "category": "spec_lookup",
+    "query": "What is the junction-to-ambient thermal resistance for the DAC8811 VSSOP package?",
+    "ground_truth": "The DAC8811 in the DGK (VSSOP) 8-pin package has a junction-to-ambient thermal resistance (RθJA) of 169.6 °C/W.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_spec_020",
+    "category": "spec_lookup",
+    "query": "What is the full-scale output current of the DAC8811 with VREF = 10V?",
+    "ground_truth": "The DAC8811 has a full-scale output current of 2 mA (±20%) with VREF = 10 V.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_conc_001",
+    "category": "conceptual",
+    "query": "What DAC architecture does the DAC8811 use?",
+    "ground_truth": "The DAC8811 uses an R-2R ladder architecture with the three MSBs segmented. Each 2R leg of the ladder is switched to either GND or the IOUT terminal.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_conc_002",
+    "category": "conceptual",
+    "query": "What is the purpose of the RFB pin on the DAC8811?",
+    "ground_truth": "The RFB pin provides an internal matching feedback resistor that gives temperature tracking for the full-scale output when combined with an external I-to-V precision amplifier. It is connected to the external op amp output.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_conc_003",
+    "category": "conceptual",
+    "query": "How does the DAC8811 serial interface work?",
+    "ground_truth": "The DAC8811 has a 3-wire serial interface (CS, CLK, SDI) compatible with SPI, QSPI, and Microwire. Data is clocked into a 16-bit shift register on each rising edge of CLK while CS is low. On the 16th rising edge, the last bit is clocked in and the DAC register is updated.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_conc_004",
+    "category": "conceptual",
+    "query": "Why is a compensation capacitor recommended in the DAC8811 I-to-V converter circuit?",
+    "ground_truth": "A compensation capacitor C1 (4 pF to 20 pF typical) is added to prevent gain peaking. The DAC8811 output impedance changes with code, and combined with limited op amp GBP and parasitic capacitance at the inverting node, this can cause gain peaking. C1 provides circuit stability.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
+    "query_id": "dac_conc_005",
+    "category": "conceptual",
+    "query": "What happens to the DAC8811 DAC register on power-up?",
+    "ground_truth": "On power-up, the DAC8811 DAC register is filled with zeros, and the DAC output is at zero scale.",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
     "query_id": "spec_001",
     "category": "spec_lookup",
     "query": "What is the maximum operating frequency of the ARM Cortex-M4?",
@@ -28,13 +203,6 @@
     "ground_truth_sources": ["H100 whitepaper"]
   },
   {
-    "query_id": "spec_005",
-    "category": "spec_lookup",
-    "query": "What is the cache line size of the Cortex-A72?",
-    "ground_truth": "The Cortex-A72 has a 64-byte cache line size for both L1 and L2 caches.",
-    "ground_truth_sources": ["cortex-a72 technical reference manual"]
-  },
-  {
     "query_id": "spec_006",
     "category": "spec_lookup",
     "query": "What are the required register widths in RV32I?",
@@ -44,8 +212,8 @@
   {
     "query_id": "spec_007",
     "category": "spec_lookup",
-    "query": "What is the maximum number of cores supported in a RISC-V hart configuration?",
-    "ground_truth": "The RISC-V privileged spec supports up to 2^32 - 1 harts, indexed by the mhartid CSR.",
+    "query": "What are the main privilege modes in RISC-V?",
+    "ground_truth": "The RISC-V privileged spec defines three main privilege levels: Machine (M), Supervisor (S), and User (U). M-mode has highest privilege, S-mode runs OS kernels, U-mode runs user applications.",
     "ground_truth_sources": ["RISC-V privileged spec"]
   },
   {
@@ -54,13 +222,6 @@
     "query": "Compare the H100 and A100 on FP32 performance.",
     "ground_truth": "H100 SXM5 delivers roughly 67 TFLOPS FP32; A100 delivers roughly 19.5 TFLOPS FP32. H100 is approximately 3x faster on FP32.",
     "ground_truth_sources": ["H100 whitepaper", "A100 whitepaper"]
-  },
-  {
-    "query_id": "comp_002",
-    "category": "comparison",
-    "query": "How does the Cortex-M4 compare to the Cortex-M7 in terms of DSP capabilities?",
-    "ground_truth": "Both include DSP extensions, but Cortex-M7 has a dual-issue pipeline and higher IPC, and adds optional double-precision FPU. Cortex-M4 has single-precision FPU and single-issue pipeline.",
-    "ground_truth_sources": ["cortex-m4 TRM", "cortex-m7 TRM"]
   },
   {
     "query_id": "comp_003",
@@ -75,6 +236,13 @@
     "query": "Compare RISC-V base integer ISA RV32I and RV64I on register width and available instructions.",
     "ground_truth": "RV32I has 32-bit registers and 32-bit addressing. RV64I has 64-bit registers and 64-bit addressing, adding W-suffixed 32-bit operations (ADDW, SUBW, etc.) for working with 32-bit values in 64-bit registers.",
     "ground_truth_sources": ["RISC-V unprivileged ISA spec"]
+  },
+  {
+    "query_id": "comp_005",
+    "category": "comparison",
+    "query": "Compare the DAC8811B and DAC8811C grades on INL.",
+    "ground_truth": "The DAC8811C has a relative accuracy (INL) of ±1 LSB, while the DAC8811B has ±2 LSB. Both have the same ±1 LSB DNL. The C grade has better integral linearity.",
+    "ground_truth_sources": ["dac8811"]
   },
   {
     "query_id": "calc_001",
@@ -105,6 +273,13 @@
     "ground_truth_sources": []
   },
   {
+    "query_id": "calc_005",
+    "category": "calculation",
+    "query": "For the DAC8811 with 50 MHz clock, what is the minimum clock period? Does a 15ns period meet timing?",
+    "ground_truth": "Minimum clock period = 1/50MHz = 20ns. A 15ns period is faster than the minimum and would VIOLATE the DAC8811 timing requirements. The clock pulse widths also require 10ns high and 10ns low (20ns total minimum).",
+    "ground_truth_sources": ["dac8811"]
+  },
+  {
     "query_id": "conc_001",
     "category": "conceptual",
     "query": "What is the purpose of cache coherence in multi-core processors?",
@@ -128,15 +303,15 @@
   {
     "query_id": "conc_004",
     "category": "conceptual",
-    "query": "What is tensor core in NVIDIA GPUs used for?",
+    "query": "What is a tensor core in NVIDIA GPUs used for?",
     "ground_truth": "Tensor Cores are specialized matrix multiply-accumulate units that accelerate deep learning workloads. They perform mixed-precision matrix operations (e.g., FP16 inputs, FP32 accumulation) at much higher throughput than standard CUDA cores. H100 adds FP8 support via the Transformer Engine.",
     "ground_truth_sources": ["H100 whitepaper", "A100 whitepaper"]
   },
   {
     "query_id": "conc_005",
     "category": "conceptual",
-    "query": "What is the RISC-V privileged architecture and what are its main privilege levels?",
-    "ground_truth": "The RISC-V privileged spec defines three main privilege levels: Machine (M), Supervisor (S), and User (U). M-mode has highest privilege and handles low-level firmware/SBI, S-mode runs OS kernels, U-mode runs user applications. Hypervisor extension adds HS-mode for virtualization.",
-    "ground_truth_sources": ["RISC-V privileged spec"]
+    "query": "What is the purpose of a multiplying DAC?",
+    "ground_truth": "A multiplying DAC produces an output proportional to the product of a digital code and an analog reference voltage. This allows it to function as a digitally controlled attenuator or gain stage for AC signals, useful in applications like programmable filters, waveform generation, and precision gain control.",
+    "ground_truth_sources": ["dac8811"]
   }
 ]
