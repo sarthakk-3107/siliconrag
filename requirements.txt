@@ -1,0 +1,29 @@
+# Core
+openai>=1.40.0
+chromadb>=0.4.22
+pdfplumber>=0.10.3
+rank-bm25>=0.2.2
+tiktoken>=0.5.2
+
+# Agent framework
+langgraph>=0.0.40
+langchain-core>=0.1.30
+langchain-openai>=0.0.8
+
+# Reranker (local, free)
+sentence-transformers>=2.5.0
+
+# Serving
+fastapi>=0.110.0
+uvicorn>=0.27.0
+streamlit>=1.31.0
+
+# Evaluation
+scipy>=1.12.0
+numpy>=1.26.0
+pandas>=2.2.0
+
+# Utilities
+python-dotenv>=1.0.0
+tqdm>=4.66.0
+pydantic>=2.6.0

@@ -1,0 +1,142 @@
+[
+  {
+    "query_id": "spec_001",
+    "category": "spec_lookup",
+    "query": "What is the maximum operating frequency of the ARM Cortex-M4?",
+    "ground_truth": "The Cortex-M4 typically operates up to 168-180 MHz depending on implementation; some vendor implementations (e.g., STM32F4) reach 168 MHz. The specific max depends on the silicon vendor's implementation.",
+    "ground_truth_sources": ["cortex-m4 technical reference manual"]
+  },
+  {
+    "query_id": "spec_002",
+    "category": "spec_lookup",
+    "query": "What is the TDP of the NVIDIA H100 SXM5?",
+    "ground_truth": "The NVIDIA H100 SXM5 has a maximum thermal design power (TDP) of 700W.",
+    "ground_truth_sources": ["H100 whitepaper", "H100 datasheet"]
+  },
+  {
+    "query_id": "spec_003",
+    "category": "spec_lookup",
+    "query": "How many CUDA cores does the A100 have?",
+    "ground_truth": "The NVIDIA A100 has 6912 CUDA cores (FP32).",
+    "ground_truth_sources": ["A100 whitepaper"]
+  },
+  {
+    "query_id": "spec_004",
+    "category": "spec_lookup",
+    "query": "What is the HBM3 memory bandwidth on the H100 SXM5?",
+    "ground_truth": "The H100 SXM5 has approximately 3.35 TB/s of HBM3 memory bandwidth.",
+    "ground_truth_sources": ["H100 whitepaper"]
+  },
+  {
+    "query_id": "spec_005",
+    "category": "spec_lookup",
+    "query": "What is the cache line size of the Cortex-A72?",
+    "ground_truth": "The Cortex-A72 has a 64-byte cache line size for both L1 and L2 caches.",
+    "ground_truth_sources": ["cortex-a72 technical reference manual"]
+  },
+  {
+    "query_id": "spec_006",
+    "category": "spec_lookup",
+    "query": "What are the required register widths in RV32I?",
+    "ground_truth": "RV32I has 32 general-purpose registers (x0-x31), each 32 bits wide. x0 is hardwired to zero. The program counter (PC) is also 32 bits.",
+    "ground_truth_sources": ["RISC-V unprivileged ISA spec"]
+  },
+  {
+    "query_id": "spec_007",
+    "category": "spec_lookup",
+    "query": "What is the maximum number of cores supported in a RISC-V hart configuration?",
+    "ground_truth": "The RISC-V privileged spec supports up to 2^32 - 1 harts, indexed by the mhartid CSR.",
+    "ground_truth_sources": ["RISC-V privileged spec"]
+  },
+  {
+    "query_id": "comp_001",
+    "category": "comparison",
+    "query": "Compare the H100 and A100 on FP32 performance.",
+    "ground_truth": "H100 SXM5 delivers roughly 67 TFLOPS FP32; A100 delivers roughly 19.5 TFLOPS FP32. H100 is approximately 3x faster on FP32.",
+    "ground_truth_sources": ["H100 whitepaper", "A100 whitepaper"]
+  },
+  {
+    "query_id": "comp_002",
+    "category": "comparison",
+    "query": "How does the Cortex-M4 compare to the Cortex-M7 in terms of DSP capabilities?",
+    "ground_truth": "Both include DSP extensions, but Cortex-M7 has a dual-issue pipeline and higher IPC, and adds optional double-precision FPU. Cortex-M4 has single-precision FPU and single-issue pipeline.",
+    "ground_truth_sources": ["cortex-m4 TRM", "cortex-m7 TRM"]
+  },
+  {
+    "query_id": "comp_003",
+    "category": "comparison",
+    "query": "Compare HBM3 and HBM2e memory in terms of bandwidth per stack.",
+    "ground_truth": "HBM3 provides up to ~819 GB/s per stack (H100 uses ~3.35 TB/s across 5 stacks). HBM2e peaks around 460 GB/s per stack. HBM3 roughly doubles per-stack bandwidth over HBM2e.",
+    "ground_truth_sources": ["H100 whitepaper", "A100 whitepaper"]
+  },
+  {
+    "query_id": "comp_004",
+    "category": "comparison",
+    "query": "Compare RISC-V base integer ISA RV32I and RV64I on register width and available instructions.",
+    "ground_truth": "RV32I has 32-bit registers and 32-bit addressing. RV64I has 64-bit registers and 64-bit addressing, adding W-suffixed 32-bit operations (ADDW, SUBW, etc.) for working with 32-bit values in 64-bit registers.",
+    "ground_truth_sources": ["RISC-V unprivileged ISA spec"]
+  },
+  {
+    "query_id": "calc_001",
+    "category": "calculation",
+    "query": "If the setup time is 2ns, hold time is 0.5ns, clock period is 5ns, and propagation delay is 1ns, does timing meet?",
+    "ground_truth": "Setup slack = 5 - 2 - 1 = 2ns (met). Hold slack = 1 - 0.5 = 0.5ns (met). Overall timing is MET.",
+    "ground_truth_sources": []
+  },
+  {
+    "query_id": "calc_002",
+    "category": "calculation",
+    "query": "What is the maximum frequency for a clock period of 2.5ns?",
+    "ground_truth": "Max frequency = 1 / 2.5ns = 400 MHz.",
+    "ground_truth_sources": []
+  },
+  {
+    "query_id": "calc_003",
+    "category": "calculation",
+    "query": "With setup=3ns, hold=1ns, clock period=4ns, prop delay=2ns, is there a timing violation?",
+    "ground_truth": "Setup slack = 4 - 3 - 2 = -1ns (VIOLATED). Hold slack = 2 - 1 = 1ns (met). Overall: TIMING VIOLATED due to setup violation.",
+    "ground_truth_sources": []
+  },
+  {
+    "query_id": "calc_004",
+    "category": "calculation",
+    "query": "Calculate setup slack for clock period 10ns, setup 2.5ns, propagation 4ns.",
+    "ground_truth": "Setup slack = 10 - 2.5 - 4 = 3.5ns.",
+    "ground_truth_sources": []
+  },
+  {
+    "query_id": "conc_001",
+    "category": "conceptual",
+    "query": "What is the purpose of cache coherence in multi-core processors?",
+    "ground_truth": "Cache coherence ensures that multiple cores with private caches see a consistent view of shared memory. When one core modifies a cached value, other cores' caches are updated or invalidated to prevent stale reads. Common protocols are MESI and MOESI.",
+    "ground_truth_sources": ["cortex-a architecture manual"]
+  },
+  {
+    "query_id": "conc_002",
+    "category": "conceptual",
+    "query": "Explain what signal integrity means in the context of high-speed digital design.",
+    "ground_truth": "Signal integrity refers to the quality of electrical signals on interconnects. Issues include reflections (impedance mismatches), crosstalk (coupling between traces), jitter, ringing, and attenuation. At high frequencies, traces behave as transmission lines and must be designed with controlled impedance.",
+    "ground_truth_sources": ["signal integrity papers"]
+  },
+  {
+    "query_id": "conc_003",
+    "category": "conceptual",
+    "query": "What is the difference between SRAM and DRAM?",
+    "ground_truth": "SRAM uses 6-transistor cells that hold state as long as power is applied - fast but large and expensive per bit, used for caches. DRAM uses 1 transistor + 1 capacitor per cell - small and cheap but requires periodic refresh, used for main memory.",
+    "ground_truth_sources": []
+  },
+  {
+    "query_id": "conc_004",
+    "category": "conceptual",
+    "query": "What is tensor core in NVIDIA GPUs used for?",
+    "ground_truth": "Tensor Cores are specialized matrix multiply-accumulate units that accelerate deep learning workloads. They perform mixed-precision matrix operations (e.g., FP16 inputs, FP32 accumulation) at much higher throughput than standard CUDA cores. H100 adds FP8 support via the Transformer Engine.",
+    "ground_truth_sources": ["H100 whitepaper", "A100 whitepaper"]
+  },
+  {
+    "query_id": "conc_005",
+    "category": "conceptual",
+    "query": "What is the RISC-V privileged architecture and what are its main privilege levels?",
+    "ground_truth": "The RISC-V privileged spec defines three main privilege levels: Machine (M), Supervisor (S), and User (U). M-mode has highest privilege and handles low-level firmware/SBI, S-mode runs OS kernels, U-mode runs user applications. Hypervisor extension adds HS-mode for virtualization.",
+    "ground_truth_sources": ["RISC-V privileged spec"]
+  }
+]

@@ -1,0 +1,20 @@
+.env
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+.DS_Store
+
+# Data artifacts - too large, users should regenerate
+data/raw/*.pdf
+data/processed/*.json
+data/chroma_db/
+
+# Eval outputs (keep queries.json, ignore results)
+eval/results/*.json
+
+# IDE
+.vscode/
+.idea/
