@@ -186,7 +186,6 @@ embeddings in this regime.
 
 ## Failure modes observed
 
-[Fill in after running eval. Examples:]
 - Agent occasionally hallucinates specs when documents have conflicting values across datasheet revisions
 - BM25 tokenization sometimes splits part numbers awkwardly (addressed with custom regex)
 - Cross-encoder reranker can demote relevant table excerpts that were parsed into awkward formats
